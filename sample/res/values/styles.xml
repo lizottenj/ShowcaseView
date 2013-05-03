@@ -3,7 +3,7 @@
         <item name="titleTextColor">#ffbb33</item>
         <item name="backgroundColor">#33ffbb33</item>
         <item name="buttonBackgroundColor">#CF3119</item>
-        <item name="buttonText">Close</item>
+        <item name="showcaseButtonText">Close</item>
     </style>
     <style name="SampleTheme" parent="Theme.Sherlock.Light.DarkActionBar">
         <item name="showcaseViewStyle">@style/CustomShowcaseTheme</item>
