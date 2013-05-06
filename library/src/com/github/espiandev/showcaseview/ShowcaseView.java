@@ -112,8 +112,8 @@ public class ShowcaseView extends RelativeLayout implements View.OnClickListener
 			return;
 		}
 		showcase = getContext().getResources().getDrawable(R.drawable.cling);
-
-		showcaseRadius = metricScale * 94;
+		
+                showcaseRadius = metricScale * mOptions.showCaseSizeDp;
 		PorterDuffXfermode mBlender = new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY);
 		setOnTouchListener(this);
 
@@ -673,7 +673,7 @@ public class ShowcaseView extends RelativeLayout implements View.OnClickListener
 		return mOptions;
 	}
 
-	/**
+    /**
 	 * Quick method to insert a ShowcaseView into an Activity
 	 *
 	 * @param viewToShowcase View to showcase
@@ -830,6 +830,7 @@ public class ShowcaseView extends RelativeLayout implements View.OnClickListener
 		public int showcaseId = 0;
 		public int shotType = TYPE_NO_LIMIT;
 		public int insert = INSERT_TO_DECOR;
+		public int showCaseSizeDp = 94;
 		public boolean hideOnClickOutside = false;
 	}
 
