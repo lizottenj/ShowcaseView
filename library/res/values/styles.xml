@@ -40,9 +40,9 @@
     </style>
 
     <style name="ShowcaseView">
-        <item name="sv_titleTextColor">#33B5E5</item>
+        <item name="sv_titleTextColor">#FFFFFF</item>
         <item name="sv_detailTextColor">#FFFFFF</item>
-        <item name="sv_backgroundColor">#3333B5E5</item>
+        <item name="sv_backgroundColor">#7733B5E5</item>
         <item name="sv_buttonText">@string/ok</item>
     </style>
 

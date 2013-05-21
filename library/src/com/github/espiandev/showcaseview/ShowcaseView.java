@@ -120,7 +120,8 @@ public class ShowcaseView extends RelativeLayout implements View.OnClickListener
 		mPaintTitle = new Paint();
 		mPaintTitle.setColor(titleTextColor);
 		mPaintTitle.setShadowLayer(2.0f, 0f, 2.0f, Color.DKGRAY);
-		mPaintTitle.setTextSize(24 * metricScale);
+		mPaintTitle.setTextSize(26 * metricScale);
+		mPaintTitle.setFakeBoldText(true);
 		mPaintTitle.setAntiAlias(true);
 
 		mPaintDetail = new TextPaint();
