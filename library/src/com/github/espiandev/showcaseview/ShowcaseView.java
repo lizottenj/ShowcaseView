@@ -491,16 +491,17 @@ public class ShowcaseView extends RelativeLayout implements View.OnClickListener
 	@SuppressLint("NewApi")
 	@Override
 	public void onClick(View view) {
-		// If the type is set to one-shot, store that it has shot
-		if (mOptions.shotType == TYPE_ONE_SHOT) {
-			SharedPreferences internal = getContext().getSharedPreferences("showcase_internal", Context.MODE_PRIVATE);
-			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) internal.edit().putBoolean("hasShot" + getConfigOptions().showcaseId, true).apply();
-			else internal.edit().putBoolean("hasShot" + getConfigOptions().showcaseId, true).commit();
-		}
 		hide();
 	}
 
 	public void hide() {
+	        // If the type is set to one-shot, store that it has shot
+                if (mOptions.shotType == TYPE_ONE_SHOT) {
+                    SharedPreferences internal = getContext().getSharedPreferences("showcase_internal", Context.MODE_PRIVATE);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) internal.edit().putBoolean("hasShot" + getConfigOptions().showcaseId, true).apply();
+                    else internal.edit().putBoolean("hasShot" + getConfigOptions().showcaseId, true).commit();
+                }
+            
 		if (mEventListener != null) {
 			mEventListener.onShowcaseViewHide(this);
 		}
@@ -573,6 +574,12 @@ public class ShowcaseView extends RelativeLayout implements View.OnClickListener
 		}
 
 		if (!mOptions.block) return false;
+		
+		if(mOptions.dismissOnFocusClick && distanceFromFocus < showcaseRadius)
+		{
+		    this.hide();
+		    return false;
+		}
 
 		return distanceFromFocus > showcaseRadius;
 
@@ -827,7 +834,8 @@ public class ShowcaseView extends RelativeLayout implements View.OnClickListener
 	}
 
 	public static class ConfigOptions {
-		public boolean block = true, noButton = false;
+		public boolean dismissOnFocusClick = false;
+                public boolean block = true, noButton = false;
 		public int showcaseId = 0;
 		public int shotType = TYPE_NO_LIMIT;
 		public int insert = INSERT_TO_DECOR;
