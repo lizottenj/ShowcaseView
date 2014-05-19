@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Button xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@id/showcase_button"
-    style="@style/ShowcaseButton"
     android:text="@string/ok"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minWidth="96dp"
+    android:gravity="center"
+    android:background="#FFB3B3B3"
+    android:textStyle="bold"
     android:textColor="@android:color/black" />
