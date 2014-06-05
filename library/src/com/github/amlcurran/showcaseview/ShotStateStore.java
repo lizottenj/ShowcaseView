@@ -43,4 +43,12 @@ public class ShotStateStore {
                 .getBoolean("hasShot" + shotId, false);
     }
 
+    public static void markShot(Context c, long shotId)
+    {
+        SharedPreferences prefs = c.getSharedPreferences(PREFS_SHOWCASE_INTERNAL, Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = prefs.edit();
+        edit.putBoolean("hasShot" + shotId, true);
+        edit.commit();
+    }
+
 }
